@@ -5,7 +5,7 @@ using System.ServiceModel.Web;
 
 namespace RestService
 {
-    
+
     [ServiceContract]
     public interface IRestServiceImpl
     {
@@ -26,7 +26,7 @@ namespace RestService
 
     public class ChangeProduct : INotifyPropertyChanged
     {
-        private string imageFullPath;
+        private string infoProductChange;
         protected void OnPropertyChanged(PropertyChangedEventArgs e)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
@@ -37,19 +37,48 @@ namespace RestService
         {
             OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
         }
-        public string ImageFullPath
+        public string InfoProductChange
         {
-            get { return imageFullPath; }
+            get { return infoProductChange; }
             set
             {
-                if (value != imageFullPath)
+                if (value != infoProductChange)
                 {
-                    imageFullPath = value;
-                    OnPropertyChanged("ImageFullPath");
+                    infoProductChange = value;
+                    OnPropertyChanged("InfoProductChange");
                 }
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
     }
+
+    public class ChangeSale : INotifyPropertyChanged
+    {
+        private string infoSaleChange;
+        protected void OnPropertyChanged(PropertyChangedEventArgs e)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+                handler(this, e);
+        }
+        protected void OnPropertyChanged(string propertyName)
+        {
+            OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
+        }
+        public string InfoSaleChange
+        {
+            get { return infoSaleChange; }
+            set
+            {
+                if (value != infoSaleChange)
+                {
+                    infoSaleChange = value;
+                    OnPropertyChanged("InfoSaleChange");
+                }
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+    }
+
 
 }
