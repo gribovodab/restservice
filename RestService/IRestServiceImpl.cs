@@ -80,5 +80,4 @@ namespace RestService
         public event PropertyChangedEventHandler PropertyChanged;
     }
 
-
 }
